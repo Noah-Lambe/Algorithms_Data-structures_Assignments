@@ -142,7 +142,7 @@ public class MovieSeatSelector {
                 System.out.println();
             } else if (option == 4) {
                 continueUse = false;
-                System.out.println("Goodbye!");
+                System.out.println("Have a good day!");
             } else {
                 System.out.println("Invalid option. Please try again.");
             }
