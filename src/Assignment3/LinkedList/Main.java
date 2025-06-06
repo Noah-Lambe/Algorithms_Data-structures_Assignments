@@ -1,5 +1,4 @@
-package LinkedList;
-
+package Assignment3.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,7 +8,9 @@ public class Main {
         sll.insertLinkedList(3,2);
         sll.insertLinkedList(4,3);
         sll.traverseLinkedList();
-        sll.searchNode(5);
+//        sll.searchNode(5);
+        sll.delete(2);
+        sll.traverseLinkedList();
 
     }
 }

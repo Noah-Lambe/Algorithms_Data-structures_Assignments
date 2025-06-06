@@ -1,4 +1,4 @@
-package LinkedList;
+package Assignment3.LinkedList;
 
 import java.util.LinkedList;
 
@@ -82,5 +82,39 @@ public class SingleLinkedListTest {
     }
 
     //implement deleting a node from single linked list
+    public void delete(int position) {
+        if (head == null) {
+            System.out.println("linked list does not exist");
+            return;
+        }
+
+        if (position == 0) {
+            head = head.next;
+            size--;
+            if (size == 0) {
+                tail = null;
+            }
+            return;
+        }
+
+        if (position >= size || position < 0) {
+            System.out.println("Invalid position");
+            return;
+        }
+
+        Node tempNode = head;
+        for (int i = 0; i < position - 1; i++) {
+            tempNode = tempNode.next;
+        }
+
+        Node nodeToDelete = tempNode.next;
+        tempNode.next = nodeToDelete.next;
+
+        if (position == size - 1) {
+            tail = tempNode;
+        }
+
+        size--;
+    }
 
 }

@@ -1,4 +1,4 @@
-package LinkedList;
+package Assignment3.LinkedList;
 
 public class Node {
     public int value;
