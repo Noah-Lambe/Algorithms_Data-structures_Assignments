@@ -6,7 +6,7 @@ import java.util.Queue;
 class AnimalShelter {
     private Queue<Dog> dogs;
     private Queue<Cat> cats;
-    private int arrivalCounter; // Tracks arrival order
+    private int arrivalCounter;
 
     public AnimalShelter() {
         dogs = new LinkedList<>();
@@ -76,6 +76,16 @@ class AnimalShelter {
 
     public int getCatCount() {
         return cats.size();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Animal Shelter Status:\n");
+        sb.append("Dogs: ").append(dogs).append("\n");
+        sb.append("Cats: ").append(cats).append("\n");
+        sb.append("Total animals: ").append(size());
+        return sb.toString();
     }
 }
 

@@ -5,16 +5,20 @@ import java.util.Queue;
 import java.util.Scanner;
 
 import Assignment5.AnimalShelterQueue.Animal;
+import Assignment5.AnimalShelterQueue.Cat;
+import Assignment5.AnimalShelterQueue.Dog;
+import Assignment5.AnimalShelterQueue.AnimalShelter.*;
 
 public class Main {
     public static void main(String[] args) {
-        Queue<Animal> shelter = new LinkedList<>();
+        AnimalShelter shelter = new AnimalShelter();
         Scanner sc = new Scanner(System.in);
 
-        shelter.offer(new Animal("Buddy", "Dog"));
-        shelter.offer(new Animal("Mittens", "Cat"));
-        shelter.offer(new Animal("Rex", "Dog"));
-        shelter.offer(new Animal("Whiskers", "Cat"));
+        shelter.enqueue(new Dog("Buddy"));
+        shelter.enqueue(new Cat("Mittens"));
+        shelter.enqueue(new Dog("Rex"));
+        shelter.enqueue(new Cat("Whiskers"));
+        shelter.enqueue(new Dog("Max"));
 
         System.out.println("Welcome to the Animal Shelter!");
         System.out.println("Please select an option:");
@@ -32,25 +36,13 @@ public class Main {
                     System.out.println("Current Shelter Queue: " + shelter);
                     break;
                 case 2:
-                    System.out.println("Adopting an Animal: " + shelter.poll());
+                    System.out.println("Adopting any animal: " + shelter.dequeueAny());
                     break;
                 case 3:
-                    for (Animal animal : shelter) {
-                        if (animal.getType().equalsIgnoreCase("Dog")) {
-                            System.out.println("Adopting a Dog: " + animal);
-                            shelter.remove(animal);
-                            break;
-                        }
-                    }
+                    System.out.println("Adopting a dog: " + shelter.dequeueDog());
                     break;
                 case 4:
-                    for (Animal animal : shelter) {
-                        if (animal.getType().equalsIgnoreCase("Cat")) {
-                            System.out.println("Adopting a Cat: " + animal);
-                            shelter.remove(animal);
-                            break;
-                        }
-                    }
+                    System.out.println("Adopting a cat: " + shelter.dequeueCat());
                     break;
                 default:
                     System.out.println("Invalid selection. Please try again.");
@@ -58,6 +50,7 @@ public class Main {
             System.out.println("\nPlease select an option:");
             selection = sc.nextInt();
         }
+        System.out.println("Thank you for visiting the Animal Shelter!");
         sc.close();
     }
 }
